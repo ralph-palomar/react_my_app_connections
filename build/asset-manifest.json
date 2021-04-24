@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "https://www.tes8.link/integration/app/connections/static/css/main.6dea0f05.chunk.css",
+    "main.js": "https://www.tes8.link/integration/app/connections/static/js/main.fad8a091.chunk.js",
+    "main.js.map": "https://www.tes8.link/integration/app/connections/static/js/main.fad8a091.chunk.js.map",
+    "runtime-main.js": "https://www.tes8.link/integration/app/connections/static/js/runtime-main.b45e7042.js",
+    "runtime-main.js.map": "https://www.tes8.link/integration/app/connections/static/js/runtime-main.b45e7042.js.map",
+    "static/css/2.2e58b697.chunk.css": "https://www.tes8.link/integration/app/connections/static/css/2.2e58b697.chunk.css",
+    "static/js/2.ab2ea137.chunk.js": "https://www.tes8.link/integration/app/connections/static/js/2.ab2ea137.chunk.js",
+    "static/js/2.ab2ea137.chunk.js.map": "https://www.tes8.link/integration/app/connections/static/js/2.ab2ea137.chunk.js.map",
+    "static/js/3.4c4c48ab.chunk.js": "https://www.tes8.link/integration/app/connections/static/js/3.4c4c48ab.chunk.js",
+    "static/js/3.4c4c48ab.chunk.js.map": "https://www.tes8.link/integration/app/connections/static/js/3.4c4c48ab.chunk.js.map",
+    "index.html": "https://www.tes8.link/integration/app/connections/index.html",
+    "static/css/2.2e58b697.chunk.css.map": "https://www.tes8.link/integration/app/connections/static/css/2.2e58b697.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "https://www.tes8.link/integration/app/connections/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.ab2ea137.chunk.js.LICENSE.txt": "https://www.tes8.link/integration/app/connections/static/js/2.ab2ea137.chunk.js.LICENSE.txt",
+    "static/media/onsenui.css": "https://www.tes8.link/integration/app/connections/static/media/ionicons.ef35f15c.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b45e7042.js",
+    "static/css/2.2e58b697.chunk.css",
+    "static/js/2.ab2ea137.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.fad8a091.chunk.js"
+  ]
+}
