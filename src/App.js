@@ -17,14 +17,17 @@ function App() {
           <Ons.Card/>
           <Ons.Card>
             <Ons.List
+                modifier="inset"
                 dataSource={
                   [
                     {
                       app: 'Twitter', 
+                      icon: 'fa-twitter',
                       authorizationLink: 'https://www.tes8.link/oauth/callback/twitter/authorize'
                     },
                     {
                       app: 'Google',
+                      icon: 'fa-google',
                       authorizationLink: 'https://www.tes8.link/oauth/callback/google/authorize'
                     }
                   ]
@@ -34,11 +37,11 @@ function App() {
                     <Ons.ListItem modifier="longdivider">
                       <div className="left">
                         <div>
-                          {row.app}  
-                        </div>                    
+                          <Ons.Icon size={{default:25}} icon={row.icon}></Ons.Icon> {row.app}
+                        </div>                   
                       </div>
                       <div className="right">
-                        <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Authorize</Ons.Button>
+                        <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Connect</Ons.Button>
                       </div>
                     </Ons.ListItem>
                   </>
