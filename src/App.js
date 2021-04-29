@@ -12,7 +12,7 @@ function App() {
     getAppList().then((app_list) => {
       setConn(app_list);
     })
-  })
+  }, [])
 
   return (
     <Ons.Page 
