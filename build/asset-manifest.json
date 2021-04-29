@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://www.tes8.link/integration/app/connections/static/css/main.6dea0f05.chunk.css",
-    "main.js": "https://www.tes8.link/integration/app/connections/static/js/main.f6a8f24a.chunk.js",
-    "main.js.map": "https://www.tes8.link/integration/app/connections/static/js/main.f6a8f24a.chunk.js.map",
+    "main.js": "https://www.tes8.link/integration/app/connections/static/js/main.0cd40f75.chunk.js",
+    "main.js.map": "https://www.tes8.link/integration/app/connections/static/js/main.0cd40f75.chunk.js.map",
     "runtime-main.js": "https://www.tes8.link/integration/app/connections/static/js/runtime-main.fa9b6af7.js",
     "runtime-main.js.map": "https://www.tes8.link/integration/app/connections/static/js/runtime-main.fa9b6af7.js.map",
     "static/css/2.2e58b697.chunk.css": "https://www.tes8.link/integration/app/connections/static/css/2.2e58b697.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.2e58b697.chunk.css",
     "static/js/2.2d6d5092.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.f6a8f24a.chunk.js"
+    "static/js/main.0cd40f75.chunk.js"
   ]
 }

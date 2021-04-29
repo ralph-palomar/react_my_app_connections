@@ -19,20 +19,7 @@ function App() {
           <Ons.Card>
             <Ons.List
                 modifier="inset"
-                dataSource={
-                  [
-                    {
-                      app: 'Twitter', 
-                      icon: 'fa-twitter',
-                      authorizationLink: 'https://www.tes8.link/oauth/callback/twitter/authorize'
-                    },
-                    {
-                      app: 'Google',
-                      icon: 'fa-google',
-                      authorizationLink: 'https://www.tes8.link/oauth/callback/google/authorize'
-                    }
-                  ]
-                }
+                dataSource={getAppList}
                 renderRow={(row) => 
                   <>
                     <Ons.ListItem modifier="longdivider">
@@ -42,7 +29,11 @@ function App() {
                         </div>                   
                       </div>
                       <div className="right">
-                        <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Connect</Ons.Button>
+                        {
+                          row.status === "Disconnected" ? 
+                            <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Connect</Ons.Button>
+                          : <b>Connected</b>
+                        }
                       </div>
                     </Ons.ListItem>
                   </>
@@ -64,7 +55,7 @@ async function getAppList() {
   })
 
   if (res.status === 200) {
-    const app_meta = [
+    var app_data = [
       {
         app: 'Twitter', 
         icon: 'fa-twitter',
@@ -76,14 +67,19 @@ async function getAppList() {
         authorizationLink: 'https://www.tes8.link/oauth/callback/google/authorize'
       }
     ]
-    res.map((item) => {
-      const app = app_meta.filter((app_item) => {
-        return app_item.app === item.connection_type
+    app_data.forEach((item, index) => {
+      var conn = res.data.filter((connection) => {
+        return connection.connection_type === item.app
       });
-      return {
-  
+      if (conn) {
+        item.status = "Connected"
+      } else {
+        item.status = "Disconnected"
       }
     });
+
+    return app_data
+
   } else {
     return []
   }
