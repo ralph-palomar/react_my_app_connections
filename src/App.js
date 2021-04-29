@@ -1,11 +1,19 @@
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 var Ons = require('react-onsenui');
 var axios = require('axios');
 
 function App() {
+  const [conn, setConn] = useState([]);
+
+  useEffect(() => {
+    getAppList().then((app_list) => {
+      setConn(app_list);
+    })
+  })
+
   return (
     <Ons.Page 
       renderToolbar={() =>
@@ -19,7 +27,7 @@ function App() {
           <Ons.Card>
             <Ons.List
                 modifier="inset"
-                dataSource={getAppList}
+                dataSource={conn}
                 renderRow={(row) => 
                   <>
                     <Ons.ListItem modifier="longdivider">
@@ -29,11 +37,7 @@ function App() {
                         </div>                   
                       </div>
                       <div className="right">
-                        {
-                          row.status === "Disconnected" ? 
-                            <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Connect</Ons.Button>
-                          : <b>Connected</b>
-                        }
+                        <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Connect</Ons.Button>
                       </div>
                     </Ons.ListItem>
                   </>
@@ -54,8 +58,10 @@ async function getAppList() {
     }
   })
 
+  var app_data = [];
+
   if (res.status === 200) {
-    var app_data = [
+    const conn_data = [
       {
         app: 'Twitter', 
         icon: 'fa-twitter',
@@ -67,22 +73,23 @@ async function getAppList() {
         authorizationLink: 'https://www.tes8.link/oauth/callback/google/authorize'
       }
     ]
-    app_data.forEach((item, index) => {
+    app_data = conn_data.map((item) => {
       var conn = res.data.filter((connection) => {
         return connection.connection_type === item.app
       });
+
       if (conn) {
+        item.connection_name = conn[0].connection_name
         item.status = "Connected"
       } else {
         item.status = "Disconnected"
       }
+
+      return item;
     });
-
-    return app_data
-
-  } else {
-    return []
   }
+
+  return app_data;
 
 }
 
