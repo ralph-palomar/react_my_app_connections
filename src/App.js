@@ -3,6 +3,7 @@ import 'onsenui/css/onsen-css-components.css';
 import React from 'react';
 
 var Ons = require('react-onsenui');
+var axios = require('axios');
 
 function App() {
   return (
@@ -52,6 +53,41 @@ function App() {
       }
     ></Ons.Page>
   );
+}
+
+async function getAppList() {
+  const res = await axios.get('https://www.tes8.link/oauth/callback/apps', {
+    auth: {
+      username: process.env.REACT_APP_API_PYOAUTH_USERNAME,
+      password: process.env.REACT_APP_API_PYOAUTH_PASSWORD
+    }
+  })
+
+  if (res.status === 200) {
+    const app_meta = [
+      {
+        app: 'Twitter', 
+        icon: 'fa-twitter',
+        authorizationLink: 'https://www.tes8.link/oauth/callback/twitter/authorize'
+      },
+      {
+        app: 'Google',
+        icon: 'fa-google',
+        authorizationLink: 'https://www.tes8.link/oauth/callback/google/authorize'
+      }
+    ]
+    res.map((item) => {
+      const app = app_meta.filter((app_item) => {
+        return app_item.app === item.connection_type
+      });
+      return {
+  
+      }
+    });
+  } else {
+    return []
+  }
+
 }
 
 export default App;
