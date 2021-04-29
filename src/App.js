@@ -51,7 +51,7 @@ function App() {
 }
 
 async function getAppList() {
-  const res = await axios.get('https://www.tes8.link/oauth/callback/apps', {
+  const res = await axios.get(process.env.REACT_APP_API_PYOAUTH_BASEURL+'/oauth/callback/apps', {
     auth: {
       username: process.env.REACT_APP_API_PYOAUTH_USERNAME,
       password: process.env.REACT_APP_API_PYOAUTH_PASSWORD
