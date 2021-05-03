@@ -2,8 +2,8 @@ import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 import React, { useEffect, useState } from 'react';
 
-var Ons = require('react-onsenui');
-var axios = require('axios');
+const Ons = require('react-onsenui');
+const axios = require('axios');
 
 function App() {
   const [conn, setConn] = useState([]);
@@ -51,12 +51,13 @@ function App() {
 }
 
 async function getAppList() {
-  const res = await axios.get(process.env.REACT_APP_API_PYOAUTH_BASEURL+'/oauth/callback/apps', {
+  const token = await axios.get('https://www.tes8.link/oauth/callback/token');
+  const res = await axios.get('https://www.tes8.link/oauth/callback/apps', {
     auth: {
-      username: process.env.REACT_APP_API_PYOAUTH_USERNAME,
-      password: process.env.REACT_APP_API_PYOAUTH_PASSWORD
+      "username": "X-API-KEY",
+      "password": token.data.token
     }
-  })
+  });
 
   var app_data = [];
 
