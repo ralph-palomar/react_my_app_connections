@@ -80,6 +80,7 @@ async function getAppList() {
       });
 
       if (conn.length > 0) {
+        item.connection_name = conn[0].connection_name;
         item.status = "Connected";
         item.disabled = true;
       } else {
