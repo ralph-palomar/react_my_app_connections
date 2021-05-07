@@ -37,7 +37,7 @@ function App() {
                         </div>                   
                       </div>
                       <div className="right">
-                        <Ons.Button modifier="outline" onClick={()=>window.open(row.authorizationLink)}>Connect</Ons.Button>
+                        <Ons.Button modifier="outline" disabled={row.enabled} onClick={()=>window.open(row.authorizationLink)}>{row.status}</Ons.Button>
                       </div>
                     </Ons.ListItem>
                   </>
@@ -80,10 +80,12 @@ async function getAppList() {
       });
 
       if (conn) {
-        item.connection_name = conn[0].connection_name
-        item.status = "Connected"
+        item.connection_name = conn[0].connection_name;
+        item.status = "Connected";
+        item.enabled = true;
       } else {
-        item.status = "Disconnected"
+        item.status = "Connect";
+        item.enabled = false;
       }
 
       return item;
