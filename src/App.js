@@ -79,12 +79,12 @@ async function getAppList() {
         return connection.connection_type === item.app
       });
 
-      if (conn) {
+      if (conn.length > 0) {
         item.status = "Connected";
-        item.enabled = true;
+        item.disabled = true;
       } else {
         item.status = "Connect";
-        item.enabled = false;
+        item.disabled = false;
       }
 
       return item;
