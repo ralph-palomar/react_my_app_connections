@@ -37,7 +37,7 @@ function App() {
                         </div>                   
                       </div>
                       <div className="right">
-                        <Ons.Button modifier="outline" disabled={row.enabled} onClick={()=>window.open(row.authorizationLink)}>{row.status}</Ons.Button>
+                        <Ons.Button modifier="outline" disabled={row.disabled} onClick={()=>window.open(row.authorizationLink)}>{row.status}</Ons.Button>
                       </div>
                     </Ons.ListItem>
                   </>
